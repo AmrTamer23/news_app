@@ -5,7 +5,6 @@ class BreakingItem extends StatelessWidget {
   const BreakingItem({
     super.key,
   });
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,18 +13,10 @@ class BreakingItem extends StatelessWidget {
         children: [
           Container(
             height: 250,
-            width: MediaQuery.of(context).size.width,
+            width: MediaQuery.of(context).size.width - 10,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25),
                 color: Colors.black87,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.5),
-                    spreadRadius: 2,
-                    blurRadius: 5,
-                    offset: const Offset(0, 3), // changes position of shadow
-                  ),
-                ],
                 image: const DecorationImage(
                     fit: BoxFit.fill,
                     image: NetworkImage(

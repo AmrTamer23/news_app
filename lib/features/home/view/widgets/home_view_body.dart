@@ -6,8 +6,11 @@ import 'package:news_app/features/home/view/widgets/custom_app_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:news_app/features/home/view/widgets/recommendation_item.dart';
+import 'package:news_app/features/home/view/widgets/recommendation_list_view.dart';
 
 import 'breaking_item.dart';
+import 'breaking_list_view.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -15,45 +18,63 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          const CustomAppBar(),
-          Padding(
-            padding:
-                const EdgeInsets.only(top: 18, left: 12, right: 12, bottom: 12),
-            child: Row(
+      child: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
+        slivers: [
+          SliverToBoxAdapter(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const Text(
-                  "Breaking News",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                const CustomAppBar(),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      top: 18, left: 12, right: 12, bottom: 12),
+                  child: Row(
+                    children: [
+                      const Text(
+                        "Breaking News",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                      const Spacer(),
+                      TextButton(
+                          onPressed: () {},
+                          child: const Text(
+                            "View all",
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w400),
+                          ))
+                    ],
+                  ),
                 ),
-                const Spacer(),
-                TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      "View all",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
-                    ))
+                const BreakingListView(),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      top: 18, left: 12, right: 12, bottom: 12),
+                  child: Row(
+                    children: [
+                      const Text(
+                        "Recommendation",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                      const Spacer(),
+                      TextButton(
+                          onPressed: () {},
+                          child: const Text(
+                            "View all",
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w400),
+                          ))
+                    ],
+                  ),
+                ),
+                const RecommendationListView(),
               ],
             ),
           ),
-          const BreakingItem(),
         ],
       ),
     );
   }
 }
-
-// class BreakingListView extends StatelessWidget {
-//   const BreakingListView({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return ListView.builder(
-//       scrollDirection: Axis.horizontal,
-//       itemBuilder: (context, index) {},
-//     );
-//   }
-// }
