@@ -10,6 +10,7 @@ class BreakingItem extends StatelessWidget {
     return Stack(
       children: [
         Container(
+          width: MediaQuery.of(context).size.width - 20,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(25),
               color: Colors.black87,
