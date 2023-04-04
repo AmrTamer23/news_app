@@ -12,8 +12,8 @@ import 'package:news_app/features/home/view/widgets/recommendation_list_view.dar
 import 'breaking_item.dart';
 import 'breaking_list_view.dart';
 
-class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
+class NewsViewBody extends StatelessWidget {
+  const NewsViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {

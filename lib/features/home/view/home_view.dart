@@ -4,13 +4,13 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:news_app/features/home/view/widgets/custom_navi_bar.dart';
 import 'package:news_app/features/home/view/widgets/home_view_body.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+class NewsView extends StatelessWidget {
+  const NewsView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: HomeViewBody(),
+      body: NewsViewBody(),
       bottomNavigationBar: CustomNaviBar(),
     );
   }
