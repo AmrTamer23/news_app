@@ -15,6 +15,7 @@ class BreakingItem extends StatelessWidget {
         children: [
           Container(
             width: MediaQuery.of(context).size.width - 20,
+            height: 300,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25),
                 color: Colors.black87,

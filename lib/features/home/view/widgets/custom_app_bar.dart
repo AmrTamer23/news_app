@@ -12,22 +12,16 @@ class CustomAppBar extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Row(
         children: [
-          IconButton(
-            onPressed: () {},
-            iconSize: 40,
-            icon: CircleAvatar(
-              backgroundColor: Colors.grey.withOpacity(0.1),
-              child: const Icon(
-                FontAwesomeIcons.bars,
-                size: 21,
-                color: Colors.black,
-              ),
+          CustomButtonIcon(
+            icon: const Icon(
+              FontAwesomeIcons.bars,
+              size: 21,
+              color: Colors.black,
             ),
+            onPressed: () {},
           ),
           const Spacer(),
-          IconButton(
-            onPressed: () {},
-            iconSize: 40,
+          CustomButtonIcon(
             icon: CircleAvatar(
               backgroundColor: Colors.grey.withOpacity(0.1),
               child: const Icon(
@@ -36,10 +30,9 @@ class CustomAppBar extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-          ),
-          IconButton(
             onPressed: () {},
-            iconSize: 40,
+          ),
+          CustomButtonIcon(
             icon: CircleAvatar(
               backgroundColor: Colors.grey.withOpacity(0.1),
               child: Stack(
@@ -57,8 +50,30 @@ class CustomAppBar extends StatelessWidget {
                 ],
               ),
             ),
-          ),
+            onPressed: () {},
+          )
         ],
+      ),
+    );
+  }
+}
+
+class CustomButtonIcon extends StatelessWidget {
+  const CustomButtonIcon({
+    super.key,
+    required this.icon,
+    required this.onPressed,
+  });
+  final Widget icon;
+  final VoidCallback onPressed;
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: onPressed,
+      iconSize: 40,
+      icon: CircleAvatar(
+        backgroundColor: Colors.grey.withOpacity(0.1),
+        child: icon,
       ),
     );
   }
